@@ -1,11 +1,16 @@
 package junit5tests;
 
+import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class AssertionsTest {
@@ -47,5 +52,36 @@ public class AssertionsTest {
                 ()->assertThrows(NullPointerException.class, null),
                 ()->assertTrue(false, "This boolean condition did not evaluate to true")
         );
+    }
+
+    @Test
+    void assertForMapTest(){
+        Map<String, Integer> theMap = new HashMap<>();
+        theMap.put("firstKey", 1);
+        theMap.put("secondKey", 2);
+        theMap.put("thirdKey", 3);
+
+        assertThat(theMap, hasValue(2));
+        assertThat(theMap, hasKey("secondKey"));
+    }
+
+    @Test
+    void  assertForList(){
+        List<String> theList = Arrays.asList("firstString","secondString", "thirdString");
+
+        assertThat(theList, hasItem("thirdString"));
+    }
+
+    @Test
+    void  assertAnyOf(){
+        List<String> theList = Arrays.asList("firstString","secondString", "thirdString");
+
+        assertThat(theList, anyOf(hasItem("thirdString"), hasItem("noString")));
+    }
+    @Test
+    void  assertForContainsInAnyOrder(){
+        List<String> theList = Arrays.asList("firstString","secondString", "thirdString");
+
+        assertThat(theList, containsInAnyOrder("firstString", "thirdString", "secondString"));
     }
 }

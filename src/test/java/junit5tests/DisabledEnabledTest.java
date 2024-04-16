@@ -1,15 +1,17 @@
 package junit5tests;
 
+import listener.Listener;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.condition.DisabledIf;
 import org.junit.jupiter.api.condition.DisabledIfSystemProperty;
 import org.junit.jupiter.api.condition.DisabledOnOs;
 import org.junit.jupiter.api.condition.OS;
+import org.junit.jupiter.api.extension.ExtendWith;
 
 import java.time.DayOfWeek;
 import java.time.LocalDateTime;
-
+@ExtendWith(Listener.class)
 public class DisabledEnabledTest {
     @Test
     @Disabled(value = "Disabled for demo of @Disabled")

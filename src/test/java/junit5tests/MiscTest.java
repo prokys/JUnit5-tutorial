@@ -2,8 +2,6 @@ package junit5tests;
 
 import org.junit.jupiter.api.*;
 
-import java.util.concurrent.TimeUnit;
-
 public class MiscTest {
     @Test
     @Timeout(5)
@@ -17,11 +15,11 @@ public class MiscTest {
     @DisplayName("This is a nice method")
     @Tag("theTag")
     void annotatedMethodOne(){
-        System.out.println("This is the anotated method");
+        System.out.println("This is the annotated method");
     }
     @MyAnnotation
     void customAnnotatedMethodOne(){
-        System.out.println("This is the custom anotated method");
+        System.out.println("This is the custom annotated method");
     }
 
     @Nested

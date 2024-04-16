@@ -1,8 +1,6 @@
 package junit5tests;
 
 import listener.Listener;
-import org.hamcrest.Matchers;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
